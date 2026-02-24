@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roar! I'm 3! 🦖</title>
+    <style>
+        :root {
+            --stroke: #2d1a12; 
+            --pupil: #fff;
+            --cake: #4e2e1e;   
+            --icing: #6d4c41;  
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+            overflow-x: hidden;
+        }
+
+        #video-bg {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            filter: brightness(0.7); 
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            background: rgba(255, 251, 235, 0.5); 
+            border: 6px double #2E7D32; 
+            border-radius: 50px;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 85%;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5), 0 15px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Header Color & Style */
+        h1 { 
+            color: #2E7D32; 
+            font-size: 2.5rem; 
+            line-height: 1.1; 
+            margin: 10px 0;
+        }
+
+        .magic-zone {
+            position: relative;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 15px 0;
+        }
+
+        .wild-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: opacity 0.3s, transform 0.3s;
+            display: block;
+        }
+
+        /* Chocolate Cake Styling */
+        .birthday-button__cake {
+            position: absolute;
+            width: 180px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .cake__eye-body { fill: var(--stroke); }
+        .cake__eye-pupil { fill: var(--pupil); }
+
+        .magic-zone:hover .wild-text { opacity: 0; transform: scale(0.8); }
+        .magic-zone:hover .birthday-button__cake { opacity: 1; transform: scale(1); display: block; }
+
+        .big-three {
+            font-size: 8rem;
+            color: #FF5252;
+            animation: bounce 0.8s infinite alternate;
+            text-shadow: 6px 6px 0px #FFCDD2;
+        }
+
+        @keyframes bounce { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+        .btn-reveal {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 8px 0 #2E7D32;
+            animation: wiggle 2s infinite;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @keyframes wiggle { 0%, 100% { transform: rotate(0); } 10%, 30%, 50% { transform: rotate(-3deg); } 20%, 40%, 60% { transform: rotate(3deg); } }
+
+        .dino-header { font-size: 4rem; display: inline-block; animation: shake 0.5s infinite alternate; }
+        @keyframes shake { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+        
+        #venue-details { display: none; margin-top: 20px; animation: popIn 0.5s forwards; }
+        @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .venue-img { width: 100%; border-radius: 30px; border: 6px solid #03A9F4; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="video-bg">
+        <source src="vecteezy_ai-generated-a-mystical-forest-blanketed-in-morning-mist-and_38997966.mp4" type="video/mp4">
+    </video>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="dino-header">🦖</div>
+            <h1>ROAAARRRRR!</h1>
+            <p>Get ready for a prehistoric adventure!</p>
+            
+            <div class="big-three">3</div>
+
+            <div class="magic-zone">
+                <span class="wild-text">I'm Turning Three & Wild!</span>
+                
+                <svg class="birthday-button__cake" viewBox="0 0 248 180">
+                    <ellipse cx="124" cy="165" rx="100" ry="15" fill="rgba(0,0,0,0.2)" />
+                    <path d="M220,150 C220,165 177,175 124,175 C71,175 28,165 28,150 L28,90 C28,75 71,65 124,65 C177,65 220,75 220,90 L220,150 Z" fill="var(--cake)" />
+                    <path d="M220,90 C220,105 177,115 124,115 C71,115 28,105 28,90 C28,75 71,65 124,65 C177,65 220,75 220,90 Z" fill="var(--icing)" />
+                    <path d="M28,90 C28,105 40,115 60,115 C80,115 90,100 110,100 C130,100 140,115 160,115 C180,115 220,105 220,90" fill="var(--icing)" />
+                    <g class="eyes">
+                        <circle class="cake__eye-body" cx="105" cy="130" r="7" />
+                        <circle class="cake__eye-pupil" cx="107" cy="128" r="2.5" />
+                        <circle class="cake__eye-body" cx="143" cy="130" r="7" />
+                        <circle class="cake__eye-pupil" cx="145" cy="128" r="2.5" />
+                    </g>
+                    <path d="M118,145 Q124,150 130,145" stroke="var(--stroke)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                    <g class="candles">
+                        <rect x="120" y="35" width="8" height="35" rx="2" fill="#FFD700" />
+                        <path d="M124,20 Q128,30 124,35 Q120,30 124,20" fill="#FF4500" />
+                    </g>
+                </svg>
+            </div>
+            
+            <button class="btn-reveal" onclick="openInvite()">JOIN THE ADVENTURE! 🐾</button>
+
+            <div id="venue-details">
+                <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80" alt="Jpark Resort" class="venue-img">
+                <p>📍 Jpark Island Resort, Cebu</p>
+                <p>📅 March 1st | ⏰ Morning to Evening</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInvite() {
+            document.getElementById('venue-details').style.display = 'block';
+            setTimeout(() => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 150);
+        }
+    </script>
+
+</body>
+</html>
